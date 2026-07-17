@@ -3,6 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Compra } from './entities/compra.entity';
 
+import { CreateCompraDto } from './dto/create-compra.dto'; // Importe o DTO aqui também
+
 @Injectable()
 export class ComprasService {
   constructor(
@@ -10,8 +12,10 @@ export class ComprasService {
     private readonly compraRepository: Repository<Compra>,
   ) {}
 
-  // Cria um novo registro de compra no banco de dados
-  async create(dadosCompra: { valorTotal: number; itens: any[] }): Promise<Compra> {
+ 
+
+  // Ajuste o parâmetro para ler do DTO com segurança
+  async create(dadosCompra: CreateCompraDto): Promise<Compra> {
     const novaCompra = this.compraRepository.create({
       valorTotal: dadosCompra.valorTotal,
       itens: dadosCompra.itens,
