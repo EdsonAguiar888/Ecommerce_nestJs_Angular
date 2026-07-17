@@ -1,12 +1,15 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { VitrineProdutosComponent } from './components/vitrine-produtos/vitrine-produtos'; // Sem ".component" no caminho
+import { CarrinhoComprasComponent } from './components/carrinho-compras/carrinho-compras'; // Sem ".component" no caminho
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  // Declaramos nossos dois componentes aqui para usá-los no HTML principal
+  imports: [VitrineProdutosComponent, CarrinhoComprasComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('frontend');
+export class AppComponent {
+  title = 'ecommerce-frontend';
 }

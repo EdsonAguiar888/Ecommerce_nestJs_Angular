@@ -1,0 +1,46 @@
+<!-- <div class="carrinho-container">
+  <h2>🛒 Seu Carrinho</h2>
+  
+  @if (itens.length === 0) {
+    <p>O carrinho está vazio. Adicione produtos acima!</p>
+  } @else {
+    <div>
+      @for (item of itens; track item.produtoId) {
+        <div class="item-carrinho">
+          <span><strong>{{ item.nome }}</strong> (x{{ item.quantidade }})</span>
+          <span>R$ {{ (item.precoUnitario * item.quantidade).toFixed(2) }}</span>
+        </div>
+      }
+      <hr>
+      <div class="total-container">
+        <h3>Total: R$ {{ total.toFixed(2) }}</h3>
+        <button class="btn-sucesso" (click)="finalizar()">Finalizar Compra</button>
+      </div>
+    </div>
+  }
+</div> -->
+
+
+<div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f8f9fa; border: 2px solid #bdc3c7; border-radius: 8px; margin-top: 30px;">
+  <h2 style="color: #2c3e50; border-bottom: 2px solid #bdc3c7; padding-bottom: 10px;">🛒 Seu Carrinho de Compras</h2>
+  
+  @if (itens.length === 0) {
+    <p style="color: #7f8c8d; font-style: italic;">O carrinho está vazio. Adicione produtos na vitrine acima!</p>
+  } @else {
+    <div>
+      @for (item of itens; track item.produtoId) {
+        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #ccc;">
+          <span><strong>{{ item.nome }}</strong> (x{{ item.quantidade }})</span>
+          <span style="font-weight: bold; color: #27ae60;">R$ {{ (item.precoUnitario * item.quantidade).toFixed(2) }}</span>
+        </div>
+      }
+      
+      <div style="margin-top: 20px; text-align: right;">
+        <h3 style="color: #333; margin-bottom: 15px;">Total: R$ {{ total.toFixed(2) }}</h3>
+        <button (click)="finalizar()" style="background: #2980b9; color: white; border: none; padding: 12px 25px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 16px;">
+          ⚡ Finalizar Compra no MySQL
+        </button>
+      </div>
+    </div>
+  }
+</div>
