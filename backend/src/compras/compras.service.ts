@@ -12,7 +12,6 @@ export class ComprasService {
     private readonly compraRepository: Repository<Compra>,
   ) {}
 
- 
 
   // Ajuste o parâmetro para ler do DTO com segurança
   async create(dadosCompra: CreateCompraDto): Promise<Compra> {
